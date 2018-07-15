@@ -24,7 +24,7 @@ Things I love
   * Clarity
   * Simplicity
 
-Things I always keep in mind
+Things I always follow
 
   - If I have seen further than others, it is by standing upon the shoulders of giants. - Isaac Newton
   - Mankind’s progress is measured by the number of things we can do without thinking. - Alfred North Whitehead

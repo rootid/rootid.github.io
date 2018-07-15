@@ -70,7 +70,7 @@ The solution is to write the clean code, and it must be done at many levels.
   * How to enhance the code readability with efficiently and effectively?
     * Vertical formatting
       * Openness - single blank line between concepts
-      * Density - Increases the compreheission speed as more content
+      * Density - Increases the compreheission speed as more content clubbed into few lines
       * Reduce distance between blocks with same conceptual affinity
 
     * Horizontal formatting
@@ -122,6 +122,12 @@ The solution is to write the clean code, and it must be done at many levels.
 
     3. Dining Philosophers - Multiple threads want to acquire different resources.
     Different problems introduced are deadlock, livelock, throughput, and efficiency degradation.
+
+    To improve
+
+    1. CPU - Computation
+
+    2. I/O - Disk/Network
 
 
   * How to write?
@@ -180,6 +186,10 @@ The solution is to write the clean code, and it must be done at many levels.
 * [the Stepdown Rule](https://dzone.com/articles/the-stepdown-rule)
 * [LawOfDemeter tricks](https://hackernoon.com/object-oriented-tricks-2-law-of-demeter-4ecc9becad85)
 * [LawOfDemeter](http://wiki.c2.com/?LawOfDemeter)
-* [Viscosity](https://stackoverflow.com/questions/925827/rotting-design-and-viscosity)
+* [Viscosity](https://stackoverflparalleisinkjow.com/questions/925827/rotting-design-and-viscosity)
 * [Test thread safe class](https://dzone.com/articles/how-i-test-my-java-classes-for-thread-safety)
+* [Concurrency is not parallelism](https://vimeo.com/49718712)
 
+
+### TODO
+1.  Empirical vertical and horizontal formatting results for various libraries
