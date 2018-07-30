@@ -189,6 +189,9 @@ The solution is to write the clean code, and it must be done at many levels.
 * [Viscosity](https://stackoverflparalleisinkjow.com/questions/925827/rotting-design-and-viscosity)
 * [Test thread safe class](https://dzone.com/articles/how-i-test-my-java-classes-for-thread-safety)
 * [Concurrency is not parallelism](https://vimeo.com/49718712)
+* [How to write unmaintainable code](https://github.com/Droogans/unmaintainable-code)
+* [Code refactoring](https://blog.codinghorror.com/code-smells/)
+* [Code smell](http://mikamantyla.eu/BadCodeSmellsTaxonomy.html)
 
 
 ### TODO
