@@ -1,0 +1,289 @@
+I"2)<h4 id="why">Why</h4>
+<p>Few characteristics of bad code</p>
+<ol>
+  <li>Rigidity - Cannot make any change</li>
+  <li>Fragility - Easy to break</li>
+  <li>Immobility - Hard to reuse</li>
+  <li>Viscosity - Easier to hack rather than add new
+  eg. Compilation takes long time - hack - skip modules
+It’s impact on developer productivity is it reduces with respect to time</li>
+</ol>
+
+<p>The solution is to write the clean code, and it must be done at many levels.</p>
+
+<h4 id="how">How</h4>
+<ul>
+  <li>Naming
+    <ul>
+      <li>
+        <p>Do’s -</p>
+
+        <ul>
+          <li>Must be specific (Avoid Processor, Manager)</li>
+          <li>Searchable</li>
+          <li>Pronounceable</li>
+          <li>Intention revealing</li>
+          <li>Follow Consistent lexicon</li>
+          <li>Use either problem/solution domain as a lexicon</li>
+          <li>Use grammar</li>
+          <li>Verb/ Verb phrase for Function e.g. postPayment</li>
+          <li>Noun/ noun phrase for Class eg. Account, WikiPage</li>
+          <li>Follow principle of least astonishment (i.e. Only do whatever you say)</li>
+        </ul>
+      </li>
+      <li>
+        <p>Don’ts -</p>
+
+        <ul>
+          <li>Be Cute (Clarity is King) eg. blackHole = /dev/null</li>
+          <li>Add encodings (Only true for static languages)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Comments
+    <ul>
+      <li>
+        <p>Don’t state the obvious</p>
+      </li>
+      <li>
+        <p>Don’ts</p>
+        <ul>
+          <li>Add misleading, scary and noisy comments</li>
+          <li>Keep commented code (Versioning is the job of version control)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Function
+    <ul>
+      <li>
+        <p>Duplication is evil, follow DRY principle</p>
+      </li>
+      <li>Do’s -
+        <ul>
+          <li>It must always do one thing.</li>
+          <li>Must be small</li>
+          <li>Check for side effect</li>
+          <li>Follow stepdown rule i.e. Write code as you are reading the code</li>
+        </ul>
+      </li>
+      <li>Don’ts
+        <ul>
+          <li>Pass output argument</li>
+          <li>Use Triads (Function with 3 or more arguments)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Class
+    <ul>
+      <li>Design with SOLID principle</li>
+      <li>Favour cohesion(of instance variables used in the class)  and reduce coupling</li>
+      <li>Open closed principle (To add new behavior new class must be created but not update the existing class)</li>
+    </ul>
+  </li>
+  <li>Test
+    <ul>
+      <li>Do’s
+        <ul>
+          <li>Follow FIRST</li>
+          <li>Choose either 1 concept/test or 1 Assert/test</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Formatting
+    <ul>
+      <li>How to enhance the code readability with efficiently and effectively?
+        <ul>
+          <li>Vertical formatting
+            <ul>
+              <li>Openness - single blank line between concepts</li>
+              <li>Density - Increases the compreheission speed as more content clubbed into few lines</li>
+              <li>Reduce distance between blocks with same conceptual affinity</li>
+            </ul>
+          </li>
+          <li>Horizontal formatting
+            <ul>
+              <li>120 characters/ line</li>
+              <li>Openness -</li>
+              <li>Density -</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Error handling
+    <ul>
+      <li>It is a thing so need to follow function rule</li>
+      <li>Never pass and return NULL</li>
+      <li>Always return exception with context</li>
+      <li>Favor unchecked exception</li>
+      <li>Checked exception causes ad infinitum problem and violates OCP principle as small change in low level code causes change in signature at higher level.</li>
+    </ul>
+  </li>
+  <li>Boundaries
+    <ul>
+      <li>How to learn new library eg. Log4j?</li>
+      <li>Explore available APIs i.e. boundaries using the unit test.</li>
+    </ul>
+  </li>
+  <li>Emergence
+    <ul>
+      <li>In conclusion to achieve clean code design
+        <ol>
+          <li>Run all Tests</li>
+          <li>No duplication</li>
+          <li>Express intent of the programmer</li>
+          <li>Minimize number of classes and methods (How to get rid of tunnel vision caused by OO design?)</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>How to build system?
+    <ul>
+      <li>Start with abstraction</li>
+      <li>Use
+        <ul>
+          <li>Separation of Concerns design paradigm (Construction and Use are 2 different processes)</li>
+          <li>Inversion of Control - Move responsibilities from 1 object to another (Use DI framework)
+ eg. DI container has responsibility of object instantiation</li>
+        </ul>
+      </li>
+      <li>Optimize decision making process</li>
+    </ul>
+  </li>
+  <li>Concurrency
+    <ul>
+      <li>Decoupling strategy that decouples What gets done and When it gets done with hope of improving performance.</li>
+      <li>It is different from parallelism</li>
+      <li>
+        <p>It always produces exponential number of execution path so difficult to find the problem.</p>
+      </li>
+      <li>
+        <p>What?</p>
+
+        <p>Few execution models</p>
+
+        <ol>
+          <li>
+            <p>Producer-Consumer - Bounded resource is shared between them.
+Problem is how to coordinate resource access with signaling.</p>
+          </li>
+          <li>
+            <p>Readers-Writers - Readers want to read some source of information and writer want to write/update
+same source of information. Problem is throughput and correctness.</p>
+          </li>
+          <li>
+            <p>Dining Philosophers - Multiple threads want to acquire different resources.
+Different problems introduced are deadlock, livelock, throughput, and efficiency degradation.</p>
+          </li>
+        </ol>
+
+        <p>To improve</p>
+
+        <ol>
+          <li>
+            <p>CPU - Computation</p>
+          </li>
+          <li>
+            <p>I/O - Disk/Network</p>
+          </li>
+        </ol>
+      </li>
+      <li>How to write?
+        <ul>
+          <li>Use Single Responsibility Principle</li>
+          <li>
+            <p>Know your library and pick one that is easily configurable.</p>
+          </li>
+          <li>Hints
+            <ol>
+              <li>Keep synchronization section small. As Locks(synchronized keyword) are expensive because they create delays and add overhead.</li>
+              <li>Use copies of data</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li>How to test?
+        <ul>
+          <li>Treat spurious failures as candidate threading issues.</li>
+          <li>Get your nonthreaded code working first.</li>
+          <li>Make your threaded code pluggable.
+            <ul>
+              <li>One thread, several threads, varied as it executes</li>
+              <li>Threaded code interacts with something that can be both real or a test double.</li>
+              <li>Execute with test doubles that run quickly, slowly, variable.</li>
+              <li>Configure tests so they can run for a number of iterations.</li>
+            </ul>
+          </li>
+          <li>Make your threaded code tunable.</li>
+          <li>Run with more threads than processors.</li>
+          <li>Run on different platforms.</li>
+          <li>Instrument your code to try and force failures.
+            <ul>
+              <li>Hand-coded  (Add calls to wait(), sleep(), yield(), and priority() in your code by hand)</li>
+              <li>Automated (Use of CGLIB, AspectJ)</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="concurrency-terms">Concurrency terms</h3>
+<ul>
+  <li>Deadlock - No work, No progress</li>
+  <li>LiveLock - Extra work, No progess</li>
+  <li>Race condition - Output depends on the execution</li>
+  <li>Starvation/ No Fairness - Only 1 thread gets all resources all the time</li>
+  <li>Deadlock conditions (All 4 must satisfy)
+    <ol>
+      <li>Mutual exclusion</li>
+      <li>Lock &amp; wait</li>
+      <li>No preemption</li>
+      <li>Circular wait</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="useful-things">Useful things</h4>
+<ul>
+  <li>Replace switch case with abstractfactory</li>
+  <li>EJB1 and EJB2 - did not separate the concern</li>
+  <li>AOP - handles cross cutting concerns like persistence, logging (e.g Spring AOP, JBOSS AOP) and those are managed with configuration xml file or annotation.</li>
+  <li>Spring - Has DI container that manages object instantiation</li>
+  <li>AspectJ - Handle cross cutting concern</li>
+  <li>CAS - Modern OS lock - Atomic construct in Java use this</li>
+  <li>Concurrent hashmap is better than HashTable and hashmap with synchronization construct</li>
+  <li>Executor - Runnable vs Callable (returns result)</li>
+  <li>Future - handy when code needs to execute multiple, independent operations and wait for both to finish</li>
+  <li>Blocking v/s NonBlocking - Future.get</li>
+</ul>
+
+<h3 id="useful-links">Useful links</h3>
+<ul>
+  <li><a href="https://rationalwiki.org/wiki/Weasel_word">Weasel words</a></li>
+  <li><a href="http://www.odi.ch/prog/design/newbies.php#28">Java Anti Patterns</a></li>
+  <li><a href="https://dzone.com/articles/optional-anti-patterns">Java8 Anti Patterns</a></li>
+  <li><a href="https://www.slideshare.net/alimenkou/java-8-the-good-the-bad-and-the-ugly">java-8-the-good-the-bad-and-the-ugly</a></li>
+  <li><a href="http://wiki.c2.com/?PrincipleOfLeastAstonishment">PrincipleOfLeastAstonishment</a></li>
+  <li><a href="https://dzone.com/articles/the-stepdown-rule">the Stepdown Rule</a></li>
+  <li><a href="https://hackernoon.com/object-oriented-tricks-2-law-of-demeter-4ecc9becad85">LawOfDemeter tricks</a></li>
+  <li><a href="http://wiki.c2.com/?LawOfDemeter">LawOfDemeter</a></li>
+  <li><a href="https://stackoverflparalleisinkjow.com/questions/925827/rotting-design-and-viscosity">Viscosity</a></li>
+  <li><a href="https://dzone.com/articles/how-i-test-my-java-classes-for-thread-safety">Test thread safe class</a></li>
+  <li><a href="https://vimeo.com/49718712">Concurrency is not parallelism</a></li>
+  <li><a href="https://github.com/Droogans/unmaintainable-code">How to write unmaintainable code</a></li>
+  <li><a href="https://blog.codinghorror.com/code-smells/">Code refactoring</a></li>
+  <li><a href="http://mikamantyla.eu/BadCodeSmellsTaxonomy.html">Code smell</a></li>
+</ul>
+
+<h3 id="todo">TODO</h3>
+<ol>
+  <li>Empirical vertical and horizontal formatting results for various libraries</li>
+</ol>
+:ET

@@ -1,0 +1,203 @@
+I"<ul>
+  <li>
+    <p>The tar pit</p>
+
+    <ul>
+      <li>
+        <p>Large programming Product System is like a tar pit.</p>
+      </li>
+      <li>What kind of system you built?
+        <ol>
+          <li>Program</li>
+          <li>Programming product</li>
+          <li>Programming System</li>
+          <li>Programming Product System</li>
+        </ol>
+      </li>
+      <li>A programming system product must be:
+        <ol>
+          <li>General (for input, as well as algorithms).</li>
+          <li>Thoroughly tested so it can be depended upon.  This increases costs
+be as much as 3 times over untested products.</li>
+          <li>Documented so it can be used, fixed, and extended.</li>
+          <li>Finally, a programming product becomes a component of a software
+system (it works with other programs and can be called or interrupted) =&gt;
+I/O interfaces become very important =&gt; a programming product must be
+tested in all possible combinations with other system components.  This
+is very difficult =&gt; A programming system product as a system
+component costs at least 3 times as much as the same program as a
+programming product.</li>
+          <li>Programming product must be within allotted budget.</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Man-Month metric</p>
+
+    <ul>
+      <li>Large programming product is divided among smaller jobs or tasks.</li>
+      <li>Each job/task requires estimation and scheduling.</li>
+      <li>Man-Month metric is used as the effort unit.</li>
+      <li>
+        <p>In ideal situation when each task is independent and requires no communication then
+Man-month metric follows downward curve if it requires communication and tasks are not independent
+then it follows different curve</p>
+      </li>
+      <li>Brook’s rule of thumb for scheduling
+        <ol>
+          <li>Planning - 33%</li>
+          <li>Coding - 17%</li>
+          <li>Component test and early system test - 25%</li>
+          <li>System test and all component tests - 25%</li>
+        </ol>
+      </li>
+      <li>Brook’s law
+        <ul>
+          <li>Adding manpower to a late software project makes it later.</li>
+        </ul>
+      </li>
+      <li>Estimation and scheduling problems
+        <ol>
+          <li>Poor estimation</li>
+          <li>Poor monitoring leads to schedule slippage solution setup milestone and monitor it frequently</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>Team organization
+    <ul>
+      <li>Which team structure should be used?
+        <ol>
+          <li>Surgical  - Chief programmer has ultimate authority to resolve conflict</li>
+          <li>Conventional - All members are equal</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>Decision making
+    <ul>
+      <li>How to resolve conflict and make design choices?
+        <ol>
+          <li>Aristocracy - Elite makes decision</li>
+          <li>Democracy - Individuals contribute to decision</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>Conceptual integrity
+    <ul>
+      <li>It is better to have one good idea and carry it through the project
+than having several uncoordinated good ideas. It implies separation of concerns between design and implementation</li>
+    </ul>
+  </li>
+  <li>
+    <p>Plan to Throw One Away</p>
+
+    <p>Prototype or pilot systems are used explore inconsistencies and incompleteness in the initial design</p>
+  </li>
+  <li>
+    <p>Sharp tools</p>
+
+    <ul>
+      <li>Use same common tools inside team
+        <ol>
+          <li>Utilities</li>
+          <li>Debugging aids</li>
+          <li>Test code generators</li>
+          <li>Text processing system</li>
+        </ol>
+      </li>
+      <li>Target machine/Deployment environment must be different from vehicle machine/build environment</li>
+      <li>Use programming tools like
+        <ol>
+          <li>Data services and simulators</li>
+          <li>Performance simulators</li>
+          <li>Logical simulators</li>
+          <li>Product simulators</li>
+        </ol>
+      </li>
+      <li>Interactive facility improves production by 2x</li>
+    </ul>
+  </li>
+  <li>
+    <p>The Second System Effect</p>
+
+    <p>While developing the next new system individuals becomes ambitious and tries to achieve lot of things</p>
+  </li>
+  <li>
+    <p>Why tower of Babel failed?</p>
+
+    <p>Due to lack of</p>
+    <ol>
+      <li>Communication - Solution Maintain work book, meeting logs</li>
+      <li>Organization - Solution No division of labor</li>
+    </ol>
+  </li>
+  <li>
+    <p>What ReadMe should include?</p>
+
+    <ol>
+      <li>Purpose</li>
+      <li>Environment</li>
+      <li>Domain range</li>
+      <li>Function realized and algorithm used</li>
+      <li>I/O format</li>
+      <li>Options</li>
+      <li>Running time</li>
+      <li>Accuracy</li>
+    </ol>
+  </li>
+  <li>Design
+    <ul>
+      <li>
+        <p>Top down design</p>
+
+        <ul>
+          <li>What?
+            <ul>
+              <li>Architecture</li>
+              <li>Implementation</li>
+              <li>Realization</li>
+            </ul>
+          </li>
+          <li>How?
+            <ul>
+              <li>Clarity</li>
+              <li>Partitioning</li>
+              <li>Suppression of details</li>
+              <li>Testing
+                <ul>
+                  <li>Building Scaffolding
+                    <ol>
+                      <li>Data built for debugging</li>
+                      <li>Miniature file</li>
+                      <li>Well formatted meaning less data</li>
+                    </ol>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="links">Links</h4>
+<ul>
+  <li><a href="https://alvarogarcia7.github.io/blog/2015/02/24/the-purple-wire/">The purple wire</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Program_evaluation_and_review_technique">PERT analysis</a></li>
+</ul>
+
+<h4 id="todo">TODO</h4>
+<ol>
+  <li>How to compute the coding effort?
+    <ul>
+      <li>4 empirical result from Portman, Haar, Aron and Corbato.</li>
+    </ul>
+  </li>
+  <li>How to effectively schedule and monitor the task?</li>
+</ol>
+:ET
