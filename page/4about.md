@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 icon: heart
 type: page
@@ -9,23 +9,37 @@ type: page
 * content
 {:toc}
 
-## 关于我
+Who am I?
 
-<iframe src="https://githubbadge.appspot.com/gaohaoyang?s=1" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
+  I'm software engineer with passion for problem solving, system design and process improvement.
+  I've experience in developing desktop, mobile, web applications
+  and backend services with microservice and monolithic architecture.
+  I also have experience in designing and developing end-to-end ETL pipeline.
 
-## 联系我
+Things I'm interested in
 
-* GitHub：[Gaohaoyang](https://github.com/Gaohaoyang)
-* email：gaohaoyang126@126.com
-* [Weibo](http://weibo.com/3115521wh)
-* [知乎](https://www.zhihu.com/people/gaohaoyang)
-* [Facebook](https://www.facebook.com/gaohaoyang.water)
-* [豆瓣](https://www.douban.com/people/42525035/)
-* [豆瓣音乐人-浩阳的小站](https://site.douban.com/haoyangaiyinyue/)
+  * Machine learning
+  * Natural language processing
+  * Linear programming model
+  * Microeconomics
 
-## 友情链接
+Things I love
 
-[羡辙杂俎](http://zhangwenli.com/blog) \| [Anotherhome](https://www.anotherhome.net) \| [Reverland](http://reverland.org/) \| [ZhiLi](http://lizhipower.github.io/) \| [Simmer](http://simmer-jun.github.io/) \| [awthink](http://awthink.net/) \| [Aralic](http://aralic.github.io/) \| [zchen9](http://www.chen9.info/) \| [wuhuaji](http://wuhuaji.me/) \| [lisheng](http://www.lishengcn.cn/) \| [薛彬XueBin](http://axuebin.com/blog/) \| [TBOOX](http://www.tboox.org/cn/) \|  [Ling](http://linglinyp.com/)
+  * Art
+  * Clarity
+  * Simplicity
+
+Things I always follow
+
+  - If I have seen further than others, it is by standing upon the shoulders of giants. - Isaac Newton
+  - Mankind’s progress is measured by the number of things we can do without thinking. - Alfred North Whitehead
+  - Use the right tool for the right job.
+  - Never be religious about the languages and tools, always be open to accept the CHANGE.
+  - Work SMART and follow Getting Things Done principle.
+  - Always analyze problem with the golden circle (Why, How, What).
+  - Beware of 2 extremes - Just do it and Paralysis by analysis.
+
+<iframe src="https://githubbadge.appspot.com/rootid" style="border: 0;height: 111px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
 
 ## Comments
 
