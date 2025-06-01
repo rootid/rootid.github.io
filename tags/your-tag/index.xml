@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Your-Tag on Code Speaks</title>
+    <link>//localhost:1313/tags/your-tag/</link>
+    <description>Recent content in Your-Tag on Code Speaks</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Jun 2025 17:23:23 -0400</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/your-tag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>//localhost:1313/posts/my-first-post/</link>
+      <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/my-first-post/</guid>
+      <description>&lt;p&gt;Welcome to my first post using the Smigle theme!&lt;/p&gt;&#xA;&lt;p&gt;This is content written in &lt;strong&gt;Markdown&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
