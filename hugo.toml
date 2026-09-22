@@ -1,4 +1,5 @@
 baseURL = 'https://code-speaks.com/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
-theme = 'PaperMod'
+theme = "ritzy"
+googleAnalytics = "G-MEASUREMENT_ID"
