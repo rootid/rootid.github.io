@@ -4,3 +4,4 @@ title = 'Code Speaks'
 theme = "ritzy"
 googleAnalytics = "G-7PPD75FGW3"
 timeZone = "America/New_York"
+buildFuture = true
