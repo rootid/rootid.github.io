@@ -1,0 +1,72 @@
+{{ define "main" }}
+<style>
+  .archives-container {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .archives-container h2 {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    color: #4a4b4f;
+  }
+
+  .post-count-text {
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .post-count {
+    font-weight: bold;
+  }
+
+  .archive-list {
+    text-align: left;
+    padding: 0;
+    font-size: 16px;
+    list-style-type: disc;
+    margin-left: 1.25em;
+  }
+
+  .archive-list li {
+    margin-bottom: 6px;
+  }
+
+  .archive-list time {
+    display: inline-block;
+    color: #888;
+    margin-right: 0.5em;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 14px;
+  }
+
+  .archive-list a {
+    text-decoration: none;
+    color: #8f6a60;
+  }
+
+  .archive-list a:hover {
+    color: #6b5046;
+    text-decoration: underline;
+  }
+</style>
+
+<div class="archives-container">
+  <h2>{{ .Title }}</h2>
+  <p class="post-count-text">
+    There are <span class="post-count">{{ len .Pages }}</span> articles.
+  </p>
+  
+  <ul class="archive-list">
+    {{ range .Pages.ByDate.Reverse }}
+      <li>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}
