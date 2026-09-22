@@ -1,6 +1,6 @@
 baseURL = 'https://code-speaks.com/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Code Speaks'
 theme = "ritzy"
-googleAnalytics = "G-MEASUREMENT_ID"
+googleAnalytics = "G-7PPD75FGW3"
 timeZone = "America/New_York"
