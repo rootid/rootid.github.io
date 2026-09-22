@@ -3,3 +3,4 @@ languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = "ritzy"
 googleAnalytics = "G-MEASUREMENT_ID"
+timeZone = "Asia/Kolkata"
