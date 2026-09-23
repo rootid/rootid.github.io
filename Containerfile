@@ -1,4 +1,5 @@
-FROM hugomods/hugo:exts
+# Keep in sync with HUGO_VERSION in .github/workflows/hugo.yaml
+FROM hugomods/hugo:exts-0.147.7
 
 WORKDIR /src
 

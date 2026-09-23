@@ -5,21 +5,24 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches:
-      - master
+      - main
+
+  # Build (but don't deploy) pull requests, so a broken build shows up before merge
+  pull_request:
+    branches:
       - main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Least privilege by default; the deploy job asks for more below
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-# Allow one concurrent deployment
+# One deployment at a time; PR builds get their own group so they never
+# cancel a deployment
 concurrency:
-  group: "pages"
+  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'pages' }}
   cancel-in-progress: true
 
 # Default to bash
@@ -31,23 +34,33 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
     env:
+      # Keep in sync with the image tag in Containerfile
       HUGO_VERSION: 0.147.7
+      # sha256 of hugo_extended_${HUGO_VERSION}_linux-amd64.deb, from the release's
+      # hugo_${HUGO_VERSION}_checksums.txt. Update together with HUGO_VERSION.
+      HUGO_SHA256: 92a6472c1ec52be9925fc3b72df235802952844bd4d8257fd39581325ae25bb3
     steps:
+      # Actions are pinned to full commit SHAs; the comment is the release tag
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: recursive
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@1f0c5cde4bc74cd7e1254d0cb4de8d49e9068c7d # v4.0.0
 
       - name: Install Hugo CLI
         run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+          wget -O "${{ runner.temp }}/hugo.deb" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb" \
+          && echo "${HUGO_SHA256}  ${{ runner.temp }}/hugo.deb" | sha256sum -c - \
+          && sudo dpkg -i "${{ runner.temp }}/hugo.deb"
 
       - name: Build with Hugo
         env:
@@ -59,18 +72,23 @@ jobs:
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: ./public
 
   # Deployment job
   deploy:
+    if: github.event_name != 'pull_request'
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.build.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
