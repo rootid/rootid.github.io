@@ -1,0 +1,57 @@
+{{ define "main" }}
+{{/* terms.html renders /tags/: a Pagefind search box (filter by tag and
+     section), then every tag with its number of pages, most used first.
+     The /pagefind/ index is generated in CI after `hugo`; locally use
+     `make search`. */}}
+<style>
+  #search {
+    --pagefind-ui-scale: 0.85;
+    --pagefind-ui-primary: #8f6a60;
+    --pagefind-ui-text: #4a4b4f;
+    --pagefind-ui-background: #fbfbfb;
+    --pagefind-ui-border: #e5e5e5;
+    --pagefind-ui-tag: #f0ebe9;
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 4px;
+    --pagefind-ui-font: 'Inter', sans-serif;
+    margin-bottom: 40px;
+  }
+</style>
+
+<div class="archives-container">
+  <h2>Search</h2>
+  <div id="search"></div>
+  <p id="search-unavailable" class="post-count-text" hidden>
+    Search isn't available in this build. It works on the live site, or locally with <code>make search</code>.
+  </p>
+
+  <h2>{{ .Title }}</h2>
+  <p class="post-count-text">
+    There are <span class="post-count">{{ len .Data.Terms }}</span> tags.
+  </p>
+
+  <ul class="archive-list">
+    {{ range .Data.Terms.ByCount }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">#{{ .Page.Data.Term }}</a>
+        <span class="tag-count">({{ .Count }})</span>
+      </li>
+    {{ end }}
+  </ul>
+</div>
+
+<link href="{{ "pagefind/pagefind-ui.css" | relURL }}" rel="stylesheet">
+<script src="{{ "pagefind/pagefind-ui.js" | relURL }}"
+        onerror="document.getElementById('search-unavailable').hidden = false"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    if (typeof PagefindUI === 'undefined') return;
+    new PagefindUI({
+      element: '#search',
+      showImages: false,
+      showSubResults: true,
+      resetStyles: false
+    });
+  });
+</script>
+{{ end }}

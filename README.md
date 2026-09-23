@@ -30,6 +30,7 @@ You need [Podman](https://podman.io). On macOS, start the VM once per boot with
 | `make build` | Builds the `rootid-blog` image only. `make run` already does this. |
 | `make clean` | Stops the container and removes the `rootid-blog` image. |
 | `make clean-all` | Also removes the base `hugomods/hugo` image and prunes dangling images. |
+| `make search` | Production-like build plus the Pagefind search index, served at http://localhost:1414. `make run` has no search index. Needs Node (`npx`). |
 
 The dev server uses `--buildFuture`, so posts dated later today still show up
 (see [Gotchas](#gotchas)).
@@ -48,7 +49,10 @@ hugo --minify               # production build into public/ (git-ignored)
 hugo.toml                 Site config: URL, title, theme, description, analytics
 layouts/                  Local overrides of the Ritzy theme (these take precedence)
   _default/baseof.html    Page shell: <head>, meta/OpenGraph tags, all CSS, nav bar, footer links
-  _default/list.html      Section pages (/projects/, /misc/, /tags/…)
+  _default/list.html      Section pages (/projects/, /misc/)
+  _default/single.html    Post/project/misc page: date, #tags, title, body
+  _default/terms.html     /tags/: search box and all tags with counts
+  _default/taxonomy.html  /tags/<tag>/: everything with that tag
   index.html              Home page: the "Writing" list of posts
   partials/archive-list.html  Dated article list shared by the two list layouts
   partials/math.html      MathJax, only for pages with `math = true`
@@ -91,6 +95,22 @@ Org files in a Denote silo (`~/Dropbox/plain_docs/publish/web/`). That silo's
 | Projects | `content/projects/` | `/projects/` |
 | Misc | `content/misc/` | `/misc/` |
 
+## Tags and search
+
+- **Tags** come from Denote keywords: `#+filetags` in the Org file becomes
+  `tags = [...]` in front matter. They show as `#tag | #tag` next to the date
+  on every post, project and misc page. Each links to `/tags/<tag>/`, which
+  lists matching pages from all sections.
+- **Search** is [Pagefind](https://pagefind.app), a static index built in CI
+  after `hugo`, with no server. The search box is at the top of `/tags/`
+  ("Search" in the nav), with filters for tag and section.
+  - Only page bodies (`data-pagefind-body` in `single.html`) are indexed. The
+    date/tag line and "Back to home" are excluded.
+  - Tag and section filters come from `data-pagefind-filter` attributes in
+    `single.html`.
+  - `hugo server` and `make run` have no index, so the page says search isn't
+    available. Use `make search` to try it locally.
+
 ## Deployment
 
 The workflow in `.github/workflows/hugo.yaml` builds the site with Hugo
@@ -122,6 +142,9 @@ start it manually from the Actions tab.
   differ from production. Bump them together. Also update `HUGO_SHA256` in the
   workflow to the `hugo_extended_<ver>_linux-amd64.deb` line from that release's
   `hugo_<ver>_checksums.txt`. CI refuses a download that doesn't match.
+- **Keep the Pagefind versions in sync.** `PAGEFIND_VERSION` appears in the
+  workflow and the `Makefile`. When bumping, update `PAGEFIND_SHA256` from the
+  release's `pagefind_extended-v<ver>-x86_64-unknown-linux-musl.tar.gz.sha256`.
 - **Math is opt-in.** MathJax loads only on pages with `math = true` in front
   matter (in Org: `#+hugo_custom_front_matter: :math true`). The version is
   pinned with an SRI hash in `layouts/partials/math.html`; the file explains how
