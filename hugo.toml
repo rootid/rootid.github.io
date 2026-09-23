@@ -5,6 +5,10 @@ theme = "ritzy"
 timeZone = "America/New_York"
 buildFuture = true
 
+# Only tags; this also stops Hugo building an empty /categories/ page
+[taxonomies]
+  tag = "tags"
+
 [params]
   description = "Vikram Sawant writes about code, projects and miscellaneous thoughts."
 

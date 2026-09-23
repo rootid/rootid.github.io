@@ -1,0 +1,4 @@
+{{ define "main" }}
+{{/* taxonomy.html renders /tags/<tag>/: pages from every section with this tag */}}
+{{ partial "archive-list.html" (dict "title" (printf "#%s" .Data.Term) "pages" .Pages.ByDate.Reverse) }}
+{{ end }}

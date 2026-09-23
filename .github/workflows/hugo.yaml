@@ -43,6 +43,11 @@ jobs:
       # sha256 of hugo_extended_${HUGO_VERSION}_linux-amd64.deb, from the release's
       # hugo_${HUGO_VERSION}_checksums.txt. Update together with HUGO_VERSION.
       HUGO_SHA256: 92a6472c1ec52be9925fc3b72df235802952844bd4d8257fd39581325ae25bb3
+      # Search index. Keep in sync with PAGEFIND_VERSION in Makefile. sha256 of
+      # pagefind_extended-v${PAGEFIND_VERSION}-x86_64-unknown-linux-musl.tar.gz
+      # (the release's .sha256 file); update together with PAGEFIND_VERSION.
+      PAGEFIND_VERSION: 1.5.2
+      PAGEFIND_SHA256: aeb135927856e7a49816cf2c9c2e53167f87afa1f61f7288b7d66c234a950d38
     steps:
       # Actions are pinned to full commit SHAs; the comment is the release tag
       - name: Checkout
@@ -70,6 +75,14 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Build search index with Pagefind
+        run: |
+          archive="pagefind_extended-v${PAGEFIND_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+          wget -O "${{ runner.temp }}/${archive}" "https://github.com/Pagefind/pagefind/releases/download/v${PAGEFIND_VERSION}/${archive}" \
+          && echo "${PAGEFIND_SHA256}  ${{ runner.temp }}/${archive}" | sha256sum -c - \
+          && tar -xzf "${{ runner.temp }}/${archive}" -C "${{ runner.temp }}" \
+          && "${{ runner.temp }}/pagefind_extended" --site public
 
       - name: Upload artifact
         if: github.event_name != 'pull_request'
