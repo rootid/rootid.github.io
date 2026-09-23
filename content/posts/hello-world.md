@@ -2,7 +2,7 @@
 title = "Hello World"
 author = ["Vikram Sawant"]
 date = 2026-09-22T13:15:00
-tags = ["blog"]
+tags = ["blog", "meta"]
 draft = false
 +++
 
