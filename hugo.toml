@@ -2,6 +2,11 @@ baseURL = 'https://code-speaks.com/'
 languageCode = 'en-us'
 title = 'Code Speaks'
 theme = "ritzy"
-googleAnalytics = "G-7PPD75FGW3"
 timeZone = "America/New_York"
 buildFuture = true
+
+[params]
+  description = "Vikram Sawant writes about code, projects and miscellaneous thoughts."
+
+[services.googleAnalytics]
+  ID = "G-7PPD75FGW3"

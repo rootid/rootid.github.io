@@ -1,8 +1,9 @@
-.PHONY: build run logs stop clean
+.PHONY: build run logs stop clean clean-all
 
 IMAGE_NAME = rootid-blog
 CONTAINER_NAME = rootid-blog-dev
 PORT = 1313
+BASE_IMAGE = $(shell awk '/^FROM/ {print $$2}' Containerfile)
 
 build:
 	@echo "Building Podman image..."
@@ -30,5 +31,5 @@ clean: stop
 
 clean-all: clean
 	@echo "Removing base Hugo image and dangling resources..."
-	podman rmi hugomods/hugo:exts || true
+	podman rmi $(BASE_IMAGE) || true
 	podman image prune -f
