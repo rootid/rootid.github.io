@@ -1,6 +1,6 @@
 +++
 title = "About Me"
-author = ["vmat"]
+author = ["Vikram Sawant"]
 date = 2026-09-23T07:00:01
 draft = false
 +++
