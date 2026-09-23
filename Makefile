@@ -25,5 +25,10 @@ stop:
 	podman stop $(CONTAINER_NAME) || true
 
 clean: stop
-	@echo "Removing image..."
+	@echo "Removing local image..."
 	podman rmi $(IMAGE_NAME) || true
+
+clean-all: clean
+	@echo "Removing base Hugo image and dangling resources..."
+	podman rmi hugomods/hugo:exts || true
+	podman image prune -f
