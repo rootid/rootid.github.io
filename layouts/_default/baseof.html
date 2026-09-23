@@ -220,10 +220,62 @@
         margin-bottom: 1.5em;
       }
     </style>
+    <style>
+      .navbar {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 40px;
+        font-family: 'Source Serif Pro', serif;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .navbar a {
+        color: #4a4b4f;
+        text-decoration: none;
+      }
+      .navbar a:hover {
+        color: #8f6a60;
+        text-decoration: underline;
+      }
+      
+      .site-footer {
+        margin-top: 60px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+        display: flex;
+        gap: 15px;
+        font-size: 14px;
+        color: #888;
+      }
+      .site-footer a {
+        color: #888;
+        text-decoration: none;
+      }
+      .site-footer a:hover {
+        color: #8f6a60;
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
+      <nav class="navbar">
+        <a href="/about/">About</a>
+        <a href="/">Writing</a>
+        <a href="/projects/">Project</a>
+        <a href="/misc/">Misc</a>
+      </nav>
+      
       {{ block "main" . }}{{ end }}
+      
+      <footer class="site-footer">
+        <a href="mailto:vsinhsawant@gmail.com">email</a>
+        <a href="https://bsky.app/">bluesky</a>
+        <a href="https://github.com/rootid">github</a>
+        <a href="https://linkedin.com/">linkedin</a>
+      </footer>
     </div>
     {{ partial "math.html" . }}
   </body>
