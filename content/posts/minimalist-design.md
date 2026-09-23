@@ -1,6 +1,6 @@
 +++
 title = "The Beauty of Minimalist Design"
-author = ["vmat"]
+author = ["Vikram Sawant"]
 date = 2026-09-23T07:00:07
 draft = false
 +++
